@@ -75,11 +75,7 @@ func main() {
 				return
 			}
 			_ = f.Close()
-			if ip.IsIPv6Available.Get() {
-				dns.IPv6Servers.Add(&m)
-			} else {
-				dns.IPv4Servers.Add(&m)
-			}
+			dns.IPv4Servers.Add(&m)
 			infoln("custom dns file added")
 		}
 		usercfg, err := readconfig(args[0], *cust)
